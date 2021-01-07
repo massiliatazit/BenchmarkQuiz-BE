@@ -9,6 +9,7 @@ Router.post("/start", async (req, res) => {
     try {
         let questioncounter = 0;
         let score = 0;
+        let examDuration =0;
       //GET EXAM AND QUESTION DB
       const examsDB = await readcontent(examsPath);
       const questionsDB = await readcontent(questionPath);
@@ -18,7 +19,7 @@ Router.post("/start", async (req, res) => {
       try {
         const selectedQuestions = [];
         for (let i = 0; i < 5; i++) {
-            questioncounter++
+          questioncounter++
           let questionIndex = Math.floor(Math.random() * questionsDB.length);
           if (selectedQuestions.includes(questionIndex)) {
             i--;

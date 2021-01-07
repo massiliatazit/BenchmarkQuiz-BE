@@ -9,8 +9,7 @@ const {
     catchAllHandler,
   } = require("./errorHandling")
   const examsRouter = require("./services/exams")
-
-// const answersRouter = require ("./services/answers")
+ const questionsRoute = require ("./services/questions")
 const server = express()
 
 server.use(express.json())
@@ -18,7 +17,7 @@ server.use(express.json())
 server.get("/", (req, res, next) => res.send("Server is running..."))
 
 server.use("/exams", examsRouter)
-// server.use("/answers", answersRouter)
+server.use("/question", questionsRoute)
 
 const port = process.env.PORT || 5001
 
